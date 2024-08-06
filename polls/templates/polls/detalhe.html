@@ -1,0 +1,12 @@
+<form action='{% url 'polls:voto' pergunta.id %}' method='post'>
+{% csrf_token %}
+<fieldset>
+    <legend><h2> {{ pergunta.texto_da_pergunta }}</h2></legend>
+    {% if mensagem_de_erro %}<p><strong>{{ mensagem_de_erro }}</strong></p>{% endif %}
+    {% for alternativa in pergunta.alternativa_set.all %}
+        <input type='radio' name='alternativa' id='alternativa {{ forloop.counter }}' value='{{ alternativa.id }}'>
+        <label for='alternativa {{ forloop.counter }}'>{{ alternativa.texto_da_alternativa }}</label><br>
+    {% endfor %}
+</fieldset>
+<input type='submit' value='Voto'>
+</form>

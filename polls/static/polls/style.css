@@ -1,0 +1,14 @@
+body {
+    background-image: url('imagens/42.png');
+    background-size: 49%;
+}
+
+li {
+    color: white;
+}
+
+li a {
+    color: white;
+    font-size: 40px;
+    font-style: bold;
+}

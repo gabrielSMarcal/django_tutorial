@@ -1,0 +1,10 @@
+<h2>{{ pergunta.texto_da_pergunta }}</h2>
+
+<ul>
+{% for alternativa in pergunta.alternativa_set.all %}
+    <li>{{ alternativa.texto_da_alternativa }} -- {{ alternativa.votos }} voto{{ alternativa.votos|pluralize }}</li>
+{% endfor %}
+</ul>
+
+<a href='{% url 'polls:detalhe' pergunta.id %}'>Votar novamente</a><hr>
+<a href='{% url 'polls:index' %}'> Retornar para tela inicial</a>

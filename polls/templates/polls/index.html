@@ -1,0 +1,13 @@
+{% load static %}
+
+<link rel='stylesheet' href='{% static 'polls/style.css' %}'>
+
+{% if lista_das_ultimas_perguntas %}
+    <ul>
+    {% for pergunta in lista_das_ultimas_perguntas %}
+        <li><a href='{% url 'polls:detalhe' pergunta.id %}'>{{ pergunta.texto_da_pergunta }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Não há pergunta disponível.</p>
+{% endif %}
